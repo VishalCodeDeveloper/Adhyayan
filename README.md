@@ -1,4 +1,4 @@
-# Adhyayan
+# Adhyayan (अध्ययन)
 Enhance your communication skills through an AI enabled partner.
 
 **Abstract:** 
