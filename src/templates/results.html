@@ -13,11 +13,11 @@
 
     <h2>Audio Analysis</h2>
     <ul>
-        <li>Sentiment: {{ results.text_analysis.sentiment }}</li>
+        <!--<li>Sentiment: {{ results.text_analysis.sentiment }}</li> -->
         <li>Keywords:
             <ul>
-                {% for keyword in results.text_analysis.keywords %}
-                    <li>{{ keyword }}</li>
+                {% for name, value in results.text_analysis.items() %}
+                    <li>{{ name }} : {{ value }}</li>
                 {% endfor %}
             </ul>
         </li>
@@ -25,21 +25,21 @@
 
     <h2>Chang in emotions</h2>
     <ul>
-        {% for time, emotion in results.emotion_changes.items() %}
+        {% for time, emotion in results.video_analysis['emotion_changes'].items() %}
             <li>Time: {{ time }}s - Emotion: {{ emotion }}</li>
         {% endfor %}
     </ul>
 
     <h2>Use of eye contact over speech</h2>
     <ul>
-        {% for time, detected in results.eye_contact %}
+        {% for time, detected in results.video_analysis['eye_contact'] %}
             <li>Time: {{ time }}s - Eye Contact: {{ 'Yes' if detected else 'No' }}</li>
         {% endfor %}
     </ul>
 
     <h2>Hand Gestures</h2>
     <ul>
-        {% for second, gestures in results.hand_gestures.items() %}
+        {% for second, gestures in results.video_analysis['hand_gestures'].items() %}
             <li>Second: {{ second }}s - Gestures:
                 <ul>
                     {% for gesture, count in gestures.items() %}
